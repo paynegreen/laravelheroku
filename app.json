@@ -13,5 +13,6 @@
     "logo": "https://devless.io/images/dv_logo.jpg",
     "scripts": {
       "postdeploy": "php artisan migrate"
-    }
+    },
+    "success_url": "/setup"
 }
