@@ -1,0 +1,13 @@
+{
+    "name": "Devless Management Console",
+    "description": "An opensource software to manage and administer all your third-party service integrations with ease for your web and mobile applications",
+    "keywords": [
+       "Devless",
+       "backend",
+       "third-party",
+       "console"
+    ],
+    "website": "https://devless.io",
+    "repository": "https://github.com/paynegreen/Laravelheroku.git",
+    "logo": "https://devless.io/images/dv_logo.jpg"
+}
