@@ -11,9 +11,6 @@
     "website": "https://devless.io",
     "repository": "https://github.com/paynegreen/Laravelheroku.git",
     "logo": "https://devless.io/images/dv_logo.jpg",
-    "env": {
-      "ENV": "Heroku"
-    },
     "scripts": {
       "postdeploy": "php artisan migrate"
     }
