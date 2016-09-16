@@ -29,7 +29,7 @@ Smooch.init({ appToken: '9wokwlxqcy4n953mn3l2zz9y7' });
 <script src="{{ Request::root().'/js/slidebars.min.js' }}"></script>
 
 <!--switchery-->
-<script src="{{ url('/js/switchery/switchery.min.js') }}"></script>
+<script src="{{ Request::root().'/js/switchery/switchery.min.js' }}"></script>
 <script src="{{ url('/js/switchery/switchery-init.js') }}"></script>
 
 <!--Sparkline Chart-->
