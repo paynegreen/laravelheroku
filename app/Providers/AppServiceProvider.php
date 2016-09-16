@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Blade;
-use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,14 +12,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url)
+    public function boot()
     {
         //
-        if(env('APP_ENV') !== 'local')
-        {
-            $url->forceSchema('https');
-        }
-
          Blade::directive('datetime', function ($expression) {
              return "<?php echo with{$expression}->format('m/d/Y H:i'); ?>";
          });
