@@ -198,20 +198,20 @@ class DbHandler
         //check if table name is set
         $service_name = $payload['service_name'];
         $table = $payload['params'][0]['name'];
-        
-        //remove service appendage from service 
+
+        //remove service appendage from service
         if(($pos = strpos($table, $service_name.'_')) !== false)
         {
            $tableWithoutService = substr($table, $pos + 1);
         } else {
             $tableWithoutService = $table;
         }
-        
-        
+
+
         $table_name = ($tableWithoutService == $payload['params'][0]['name'])
                 ? $service_name.'_'.$tableWithoutService:
                   $payload['params'][0]['name'];
-        
+
         if (!\Schema::connection('DYNAMIC_DB_CONFIG')->
         hasTable($table_name)) {
             Helper::interrupt(634);
@@ -220,7 +220,7 @@ class DbHandler
         if ($payload['user_id'] !== '') {
             $user_id = $payload['user_id'];
             $destroy_query = '$db->table("'.$table_name.'")->where("devless_user_id",'.$user_id.')';
-            
+
         } else {
             $destroy_query = '$db->table("'.$table_name.'")';
         }
@@ -359,19 +359,19 @@ class DbHandler
                 };
                 $endOutput = [];
                 $complete_query = $complete_query.'
-                    ->chunk(100, function($results) use(&$endOutput, $related) { 
+                    ->chunk(100, function($results) use(&$endOutput, $related) {
                         $endOutput =  $related($results);
                     });';
             } else {
                 $complete_query = 'return '.$complete_query.'->get();';
             }
-            
+
             $count = $db->table($table_name)->count();
             $query_output = eval($complete_query);
-            
-                 
+
+
             $results['properties']['count'] = $count;
-            
+
             $results['results'] = (isset($queried_table_list))? $endOutput : $query_output;
 
             return Response::respond(625, null, $results);
@@ -487,6 +487,9 @@ class DbHandler
      */
     public function column_generator($field, $table, $db_type)
     {
+        var_dump($field);
+        var_dump($table);
+        var_dump($db_type);
         $column_type = $this->check_column_constraints($field);
         $unique = '';
         if ($field['is_unique'] == 'true') {
@@ -508,6 +511,7 @@ class DbHandler
             ($field['name'])->default($field['default'])->onDelete('cascade')
             ->$unique();
         } elseif ($column_type == 1) {
+          var_dump($field['field_type']);
             $table->$db_type[$field['field_type']]
             ($field['name'])->onDelete('cascade')->$unique();
         } else {
@@ -608,72 +612,72 @@ class DbHandler
      * @return array
      */
     private function _get_related_data($payload, $results, $primaryTable, $tables) {
-      
-        
-        
+
+
+
         $serviceTables = $this->_get_all_service_tables($payload);
-        
-        
+
+
         $tables = (in_array("*", $tables))?
                 $this->_get_all_related_tables($primaryTable) : $tables;
-        
+
         $output = [];
         $service = $payload['service_name'];
-        
-        
+
+
         //loop over list of tables check if exist
         foreach ($results as $eachResult) {
-                   $eachResult->related = []; 
+                   $eachResult->related = [];
                    array_walk($tables, function($table) use($eachResult, &$output, $service) {
 
                        $refField = $service.'_'.$table.'_id';
-                       
+
                        $referenceId = (isset($eachResult->$refField))? $eachResult->$refField:
                                     Helper::interrupt(640);
-                       
+
                        $relatedData = \DB::table($service.'_'.$table)
                            ->where('id', $referenceId)
                            ->get();
-                        
+
                        array_push($eachResult->related,[$table =>[$relatedData]]);
 
-                       
+
                    });
-                   array_push($output, $eachResult); 
+                   array_push($output, $eachResult);
         }
         return $output;
     }
-    
+
     /**
      *Get all related tables for a service.
      *@param $stableName
      *@return array
      */
-    private function _get_all_related_tables($tableName) 
+    private function _get_all_related_tables($tableName)
     {
         $relatedTables = [];
-        
+
         $schema = $this->_get_tableMeta($tableName);
-        
-        array_walk($schema['schema']['field'], function($field) 
+
+        array_walk($schema['schema']['field'], function($field)
                 use($tableName, &$relatedTables) {
-            
+
             if ($field['field_type'] == 'reference') {
 
                 array_push($relatedTables, $field['ref_table']);
             }
 
         });
-       
+
         return $relatedTables;
-        
-    } 
+
+    }
     private function _get_all_service_tables($payload)
     {
         $serviceId = $payload['id'];
         $tables = \DB::table('table_metas')
                 ->where('service_id', $serviceId)->get();
-        
+
         return $tables;
     }
 

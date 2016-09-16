@@ -16,14 +16,14 @@ Smooch.init({ appToken: '9wokwlxqcy4n953mn3l2zz9y7' });
     </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="{{ url('/js/jquery-1.10.2.min.js') }}"></script>
-<script src="{{ url('/js/jquery-migrate.js') }}"></script>
-<script src="{{ url('/js/bootstrap.min.js') }}"></script>
+<script src="{{ Request::root().'/js/jquery-1.10.2.min.js' }}"></script>
+<script src="{{ Request::root().'/js/jquery-migrate.js' }}"></script>
+<script src="{{ Request::root().'/js/bootstrap.min.js' }}"></script>
 <!--notification pan-->
-<script src="{{ url('/js/modernizr.min.js') }}"></script>
+<script src="{{ Request::root().'/js/modernizr.min.js' }}"></script>
 
 <!--Nice Scroll-->
-<script src="{{ url('/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
+<script src="{{ Request::root().'/js/jquery.nicescroll.js' }}" type="text/javascript"></script>
 
 <!--right slidebar-->
 <script src="{{ url('/js/slidebars.min.js') }}"></script>

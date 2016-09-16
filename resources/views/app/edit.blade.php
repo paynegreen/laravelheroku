@@ -122,7 +122,7 @@
         </div>
     </div>
     <!--body wrapper end-->
-    
+
 <!-- Modal -->
 <div class="modal fade" id="connect-to-app" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -148,10 +148,10 @@
                                         "token":"{{$app->token}}",
                                         "domain":"{{URL::to('/')}}"
                                         };
-                                        
+
                                     Devless = new Devless(constants);
 
-                                    
+
 
                                 </code>
                             </div>
@@ -160,7 +160,7 @@
 			  <div class="tab-pane" id="raw"><center>NA</center></div>
 			</div>
       </div>
-      
+
     </div>
   </div>
 </div>
