@@ -7,7 +7,7 @@
        "third-party",
        "console"
     ],
-    "addons": ["heroku-postgresql"],
+    "addons": ["cleardb"],
     "website": "https://devless.io",
     "repository": "https://github.com/paynegreen/Laravelheroku.git",
     "logo": "https://devless.io/images/dv_logo.jpg",
