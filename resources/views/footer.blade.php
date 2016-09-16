@@ -26,7 +26,7 @@ Smooch.init({ appToken: '9wokwlxqcy4n953mn3l2zz9y7' });
 <script src="{{ Request::root().'/js/jquery.nicescroll.js' }}" type="text/javascript"></script>
 
 <!--right slidebar-->
-<script src="{{ url('/js/slidebars.min.js') }}"></script>
+<script src="{{ Request::root().'/js/slidebars.min.js' }}"></script>
 
 <!--switchery-->
 <script src="{{ url('/js/switchery/switchery.min.js') }}"></script>
