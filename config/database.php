@@ -1,6 +1,6 @@
 <?php
 
-$url = getenv("AWSDB_MARIA_URL");
+$url = getenv("JAWSDB_MARIA_URL");
 $host = "";
 $username = "";
 $password = "";
@@ -13,10 +13,10 @@ if ($url !== false) {
 	$password = $url["pass"];
 	$database = substr($url["path"], 1);
 } else {
-	$host = env('DB_HOST', 'localhost');
-	$username = env('DB_USERNAME', 'forge');
-	$password = env('DB_PASSWORD', '');
-	$database = env('DB_DATABASE', 'forge');
+	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
+	$username = 'root';//env('DB_USERNAME', 'forge');
+	$password = 'password';//env('DB_PASSWORD', '');
+	$database = 'lola';//env('DB_DATABASE', 'forge');
 }
 
 return [
