@@ -55,7 +55,6 @@ class DbHandler
      */
     public function access_db($payload)
     {
-      var_dump($payload);
         $payload['user_id'] = '';
 
         $request = $payload['method'];
@@ -488,6 +487,9 @@ class DbHandler
      */
     public function column_generator($field, $table, $db_type)
     {
+        var_dump($field);
+        var_dump($table);
+        var_dump($db_type);
         $column_type = $this->check_column_constraints($field);
         $unique = '';
         if ($field['is_unique'] == 'true') {
@@ -509,6 +511,7 @@ class DbHandler
             ($field['name'])->default($field['default'])->onDelete('cascade')
             ->$unique();
         } elseif ($column_type == 1) {
+          var_dump($field['field_type']);
             $table->$db_type[$field['field_type']]
             ($field['name'])->onDelete('cascade')->$unique();
         } else {
