@@ -1,6 +1,6 @@
 <?php
 
-$url = getenv("CLEARDB_DATABASE_URL");
+$url = getenv("AWSDB_MARIA_URL");
 $host = "";
 $username = "";
 $password = "";

@@ -671,7 +671,7 @@ class DevlessHelper extends Helper
         //check DocComment
         $ACLS =  ['@ACL public', '@ACL private', '@ACL protected'];
 
-        $access_type = function() use($docComment)  {
+        $access_type = function () use ($docComment) {
             (strpos(($docComment), '@ACL private'))? Helper::interrupt(627) :
                 (strpos($docComment, '@ACL protected'))? Helper::get_authenticated_user_cred(2) :
                     (strpos($docComment, '@ACL public'))? true : Helper::interrupt(638) ;
@@ -707,14 +707,14 @@ class DevlessHelper extends Helper
      * @param $replacements
      * @return bool
      */
-    public static function modifyAssetContent($serviceName, array $files, array $replacements) {
+    public static function modifyAssetContent($serviceName, array $files, array $replacements)
+    {
 
-        $forEachFile = function ($fileName) use($serviceName, $replacements){
+        $forEachFile = function ($fileName) use ($serviceName, $replacements) {
 
             $filePath = config('devless')['views_directory'].$serviceName.'/'.$fileName;
 
-            foreach($replacements as $oldContent => $newContent) {
-
+            foreach ($replacements as $oldContent => $newContent) {
                 $state = self::modifyFileContent($filePath, $oldContent, $newContent);
             }
             return $state;
@@ -763,7 +763,7 @@ class DevlessHelper extends Helper
 
         (file_exists($serviceMethodPath))?
             require_once $serviceMethodPath : false;
-        
+
         if (class_exists($service)) {
                 $serviceInstance = new $service();
             $results = (isset($payload['delete']) && !isset($payload['install']) && $payload['delete'] == '__onDelete')?
@@ -774,8 +774,6 @@ class DevlessHelper extends Helper
         } else {
             return false;
         }
-        
+
     }
-    
-   
 }
