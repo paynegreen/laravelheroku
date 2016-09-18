@@ -55,6 +55,7 @@ class DbHandler
      */
     public function access_db($payload)
     {
+      var_dump($payload);
         $payload['user_id'] = '';
 
         $request = $payload['method'];
