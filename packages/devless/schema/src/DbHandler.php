@@ -487,10 +487,10 @@ class DbHandler
      * @return object
      */
     public function column_generator($field, $table, $db_type)
-    var_dump($field);
-    var_dump($table);
-    var_dump($db_type);
     {
+      var_dump($field);
+      var_dump($table);
+      var_dump($db_type);
         $column_type = $this->check_column_constraints($field);
         $unique = '';
         if ($field['is_unique'] == 'true') {
