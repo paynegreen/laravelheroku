@@ -10,7 +10,11 @@
     "website": "https://devless.io",
     "repository": "https://github.com/paynegreen/Laravelheroku.git",
     "logo": "https://devless.io/images/dv_logo.jpg",
-    "image": "heroku/php",
+    "buildpacks": [
+      {
+        "url": "https://github.com/lifekent/heroku-buildpack-laravel"
+      }
+    ],
     "scripts": {
       "postdeploy": "php artisan migrate"
     },
