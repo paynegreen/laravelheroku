@@ -10,9 +10,9 @@
     "website": "https://devless.io",
     "repository": "https://github.com/paynegreen/Laravelheroku.git",
     "logo": "https://devless.io/images/dv_logo.jpg",
-    "addons":["jawsdb-maria",
+    "addons":[
       {
-        "plan": "jawsdb-maria:kitefen"
+        "plan": "mariadb:kitefen"
       }
     ],
     "scripts": {
