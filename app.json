@@ -12,7 +12,7 @@
     "logo": "https://devless.io/images/dv_logo.jpg",
     "buildpacks": [
       {
-        "url": "https://github.com/lifekent/heroku-buildpack-laravelk"
+        "url": "https://github.com/lifekent/heroku-buildpack-laravel"
       }
     ],
     "scripts": {
