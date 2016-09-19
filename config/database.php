@@ -1,24 +1,24 @@
 <?php
 
-// $url = getenv("JAWSDB_MARIA_URL");
+$url = getenv("JAWSDB_MARIA_URL");
 $host = "";
 $username = "";
 $password = "";
 $database = "";
-//
-// if ($url !== false) {
-// 	$url = parse_url($url);
-// 	$host = $url["host"];
-// 	$username = $url["user"];
-// 	$password = $url["pass"];
-// 	$database = substr($url["path"], 1);
-// } else {
-// 	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
-// 	$username = 'root';//env('DB_USERNAME', 'forge');
-// 	$password = 'password';//env('DB_PASSWORD', '');
-// 	$database = 'lola';//env('DB_DATABASE', 'forge');
-// }
 
+
+if ($url !== false) {
+	$url = parse_url($url);
+	$host = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$database = substr($url["path"], 1);
+} else {
+	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
+	$username = 'root';//env('DB_USERNAME', 'forge');
+	$password = 'password';//env('DB_PASSWORD', '');
+	$database = 'lola';//env('DB_DATABASE', 'forge');
+}
 return [
 
     /*
@@ -85,10 +85,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => '45.33.95.89', //env('DB_HOST', 'localhost');,
-            'database'  => 'lola',//env('DB_DATABASE', 'forge');,
-            'username'  => 'root',//env('DB_USERNAME', 'forge');,
-            'password'  => 'password',//env('DB_PASSWORD', '');,
+            'host'      => $host,//'45.33.95.89', 
+            'database'  => $database,//'lola',
+            'username'  => $username,//'root',
+            'password'  => $password,//'password',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
