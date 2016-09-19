@@ -10,7 +10,11 @@
     "website": "https://devless.io",
     "repository": "https://github.com/paynegreen/Laravelheroku.git",
     "logo": "https://devless.io/images/dv_logo.jpg",
-    "addons":["jawsdb-maria"],
+    "addons":["jawsdb-maria",
+      {
+        "plan": "jawsdb-maria:kitefen"
+      }
+    ],
     "scripts": {
       "postdeploy": "php artisan migrate"
     },
