@@ -13,12 +13,12 @@ if ($url !== false) {
 	$username = $url["user"];
 	$password = $url["pass"];
 	$database = substr($url["path"], 1);
-}// } else {
-// 	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
-// 	$username = 'root';//env('DB_USERNAME', 'forge');
-// 	$password = 'password';//env('DB_PASSWORD', '');
-// 	$database = 'lola';//env('DB_DATABASE', 'forge');
-// }
+} else {
+	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
+	$username = 'root';//env('DB_USERNAME', 'forge');
+	$password = 'password';//env('DB_PASSWORD', '');
+	$database = 'lola';//env('DB_DATABASE', 'forge');
+}
 return [
 
     /*
