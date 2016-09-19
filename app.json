@@ -12,7 +12,7 @@
     "logo": "https://devless.io/images/dv_logo.jpg",
     "addons":[
       {
-        "plan": "mysql2"
+        "plan": "jawsdb"
       }
     ],
     "scripts": {
