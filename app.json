@@ -12,8 +12,7 @@
     "logo": "https://devless.io/images/dv_logo.jpg",
     "addons":[
       {
-        "plan": "jawsdb:kitefin",
-        "as": "jawsdb-maria"
+        "plan": "jawsdb-maria:kitefin",
       }
     ],
     "scripts": {
