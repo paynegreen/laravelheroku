@@ -1,11 +1,10 @@
 <?php
 
-$url = getenv("JAWSDB_MARIA_URL");
+$url = getenv("CLEARDB_DATABASE_URL");
 $host = "";
 $username = "";
 $password = "";
 $database = "";
-
 
 if ($url !== false) {
 	$url = parse_url($url);
@@ -14,11 +13,12 @@ if ($url !== false) {
 	$password = $url["pass"];
 	$database = substr($url["path"], 1);
 } else {
-	$host = '45.33.95.89'; //env('DB_HOST', 'localhost');
-	$username = 'root';//env('DB_USERNAME', 'forge');
-	$password = 'password';//env('DB_PASSWORD', '');
-	$database = 'lola';//env('DB_DATABASE', 'forge');
+	$host = env('DB_HOST', 'localhost');
+	$username = env('DB_USERNAME', 'forge');
+	$password = env('DB_PASSWORD', '');
+	$database = env('DB_DATABASE', 'forge');
 }
+
 return [
 
     /*
@@ -97,10 +97,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'host'     => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', 'secret'),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
